@@ -1,0 +1,17 @@
+1. 主程序（main方法）：
+	创建demo1类的实例。
+	依次调用input、shift、alphabetizer和output方法来处理文本数据。	
+2. input方法：
+	读取指定文件名的输入文件。
+	将每一行文本添加到lineTxt列表中，同时更新MainFrame的inputText文本域。
+3. shift方法：
+	对lineTxt中的每行文本进行循环移位处理。
+	将移位后的结果添加到kwicList列表中。
+4. alphabetizer方法：
+	对kwicList中的文本行进行字典排序。
+	使用内部类AlphabetizerComparator来定义排序规则。
+5. output方法：
+	将排序后的kwicList内容写入指定的输出文件。
+	同时更新MainFrame的outputText文本域。
+6. AlphabetizerComparator内部类：
+	实现Comparator接口，定义字符串比较逻辑，忽略大小写。

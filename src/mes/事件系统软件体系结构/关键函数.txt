@@ -1,0 +1,31 @@
+1. Subject类的addObserver和notifyAllObserver方法：
+	addObserver：添加观察者到观察者列表。
+	notifyAllObserver：通知所有观察者执行其toDo方法。
+2. Input类的toDo方法：
+	功能：读取输入文件，并将每一行文本添加到lineTxt列表中。
+	关键代码：lineTxt.add(line);
+5. Shift类的toDo方法：
+	功能：对每一行文本进行单词移位处理。
+	关键代码：
+	StringBuffer lineBuffer = new StringBuffer();
+	int index = i;
+	for (int f = 0; f < count; f++) {
+    		if (index >= count) index = 0;
+    		lineBuffer.append(tokens.get(index) + " ");
+    		index++;
+	}
+	kwicList.add(lineBuffer.toString());
+4. Alphabetizer类的toDo方法：
+	功能：对移位后的文本列表进行字典排序。
+	关键代码：
+	Collections.sort(this.kwicList, new AlphabetizerComparator());
+5. Output类的toDo方法：
+	功能：将排序后的文本列表写入到输出文件中。
+	关键代码：
+	outputFile.write(it.next() + "\n");
+6. KWICSubject类的startKWIC方法：
+	功能：按顺序通知每个观察者执行其toDo方法。
+	关键代码：
+	for (int i = 0; i < 4; i++) {
+    		super.notifyOneObserver(i);
+	}

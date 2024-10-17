@@ -1,0 +1,38 @@
+1. input(String fileName)：
+	功能：读取输入文件，并将每一行文本存储在lineTxt列表中。
+	关键代码：
+	while ((line = inputFile.readLine()) != null) {
+    		lineTxt.add(line);
+	}
+2. shift()：
+	功能：对每行文本进行循环移位处理，生成所有可能的移位情况。
+	关键代码：
+	for (i = 0; i < count; i++) {
+    		StringBuffer lineBuffer = new StringBuffer();
+    		int index = i;
+    		for (int f = 0; f < count; f++) {
+        		if (index >= count) index = 0;
+        		lineBuffer.append(tokens.get(index) + " ");
+        		index++;
+    		}
+    		kwicList.add(lineBuffer.toString());
+	}
+3. alphabetizer()：
+	功能：对移位后的文本行进行字典排序。
+	关键代码：
+	Collections.sort(this.kwicList, new AlphabetizerComparator());
+4. output(String filename)：
+	功能：将排序后的文本行写入输出文件。
+	关键代码：
+	while (it.hasNext()) {
+    		String s = it.next();
+    		outputFile.write(s + "\n");
+	}
+5. AlphabetizerComparator内部类：
+	功能：定义字符串比较逻辑，忽略大小写。
+	关键代码：
+	public int compare(String o1, String o2) {
+    		char o1c = o1.toLowerCase().charAt(0);
+    		char o2c = o2.toLowerCase().charAt(0);
+    		return o1c - o2c;
+	}

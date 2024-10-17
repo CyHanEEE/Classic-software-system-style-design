@@ -1,0 +1,24 @@
+1. Input类的input(String fileName)方法：
+	功能：读取文件并将每一行文本添加到lineTxt列表中。
+	关键代码：
+	lineTxt.add(line);
+2. Shift类的shift()方法：
+	功能：对每一行文本进行单词移位处理。
+	关键代码：
+	StringBuffer lineBuffer = new StringBuffer();
+	int index = i;
+	for (int f = 0; f < count; f++) {
+    		if (index >= count) index = 0;
+    		lineBuffer.append(tokens.get(index) + " ");
+    		index++;
+	}
+	kwicList.add(lineBuffer.toString());
+3. Alphabetizer类的sort()方法：
+	功能：对移位后的文本列表进行字典排序。
+	关键代码：
+	Collections.sort(this.kwicList, new AlphabetizerComparator());
+	AlphabetizerComparator内部类定义了排序规则，忽略大小写。
+4. Output类的output(String filename)方法：
+	功能：将排序后的文本列表写入到输出文件中。
+	关键代码：
+	outputFile.write(it.next() + "\n");
